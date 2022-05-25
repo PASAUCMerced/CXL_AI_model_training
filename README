@@ -1,49 +1,10 @@
-Gem5-AVX -------------------------------------------------------------------
-
-This repo adds partial AVX2 and AVX-512 support to gem5. Key features:
-- Supports many common instructions (passed the dense_mv test in avx_test).
-- Most arithmetic instructions are broken into a single microop.
-- No support for masking or broadcast.
-For more details, please refer to: https://seanzw.github.io/posts/gem5-avx/
-
-Feel free to use and extend it. Please note that the code is not throughly
-tested, and almost certainly contains bugs. Use it at your own risk.
-
-Original README ------------------------------------------------------------
-This is the gem5 simulator.
-
-The main website can be found at http://www.gem5.org
-
-A good starting point is http://www.gem5.org/about, and for
-more information about building the simulator and getting started
-please see http://www.gem5.org/documentation and
-http://www.gem5.org/documentation/learning_gem5/introduction.
-
-To build gem5, you will need the following software: g++ or clang,
-Python (gem5 links in the Python interpreter), SCons, SWIG, zlib, m4,
-and lastly protobuf if you want trace capture and playback
-support. Please see http://www.gem5.org/documentation/general_docs/building
-for more details concerning the minimum versions of the aforementioned tools.
-
-Once you have all dependencies resolved, type 'scons
-build/<ARCH>/gem5.opt' where ARCH is one of ARM, NULL, MIPS, POWER, SPARC,
-or X86. This will build an optimized version of the gem5 binary (gem5.opt)
-for the the specified architecture. See
-http://www.gem5.org/documentation/general_docs/building for more details and
-options.
-
-The basic source release includes these subdirectories:
-   - configs: example simulation configuration scripts
-   - ext: less-common external packages needed to build gem5
-   - src: source code of the gem5 simulator
-   - system: source for some optional system software for simulated systems
-   - tests: regression tests
-   - util: useful utility programs and files
-
-To run full-system simulations, you will need compiled system firmware
-(console and PALcode for Alpha), kernel binaries and one or more disk
-images.
-
-If you have questions, please send mail to gem5-users@gem5.org
-
-Enjoy using gem5 and please share your modifications and extensions.
+# AI_Model_training_with_CXL
+  This repo is for simulating the data transfering with CXL in adam_optimizer.
+  We use trace_based method to calculate the end-to-end time[From starting the optimization to the end].
+  
+  
+  It contains two major parts: avx_cpp_single_thread -- this diretory contains the code for adam_optimzer with avx instructions.
+  The compilation command is : gcc -O3 -mavx512f -static -o cpucomp main.cpp
+  
+  The second part is gem5-avx. We use gem5-avx to simulate the program in avx_cpp_single-thread. sim.sh contains the command for runing this simulation.
+  We trace each memory access and write the trace into a file. Before feed it into the analyzer, we need use extrace the timestamp from each memory write. Finally, we have process.py to process this trace.
