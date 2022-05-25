@@ -5,5 +5,5 @@
   It contains two major parts: avx_cpp_single_thread -- this diretory contains the code for adam_optimzer with avx instructions.
   The compilation command is : gcc -O3 -mavx512f -static -o cpucomp main.cpp
   
-  The second part is gem5-avx. We use gem5-avx to simulate the program in avx_cpp_single-thread. sim.sh contains the command for runing this simulation.
+  The second part is gem5-avx(Please visit gem5 website to build gem5).. We use gem5-avx to simulate the program in avx_cpp_single-thread. sim.sh contains the command for runing this simulation.
   We trace each memory access and write the trace into a file. Before feed it into the analyzer, we need use extrace the timestamp from each memory write. Finally, we have process.py to process this trace.
