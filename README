@@ -2,7 +2,6 @@
   This repo is for simulating the data transfering with CXL in adam_optimizer.
   We use trace_based method to calculate the end-to-end time[From starting the optimization to the end].
   
-  
   It contains two major parts: avx_cpp_single_thread -- this diretory contains the code for adam_optimzer with avx instructions.
   The compilation command is : gcc -O3 -mavx512f -static -o cpucomp main.cpp
   
